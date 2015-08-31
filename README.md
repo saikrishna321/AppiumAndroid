@@ -1,7 +1,7 @@
 # AppiumAndroidParallelExecution
 <h1>Parallel execution of Android Test based with Appium</h1>
 
-To Run the test scripts in parallel you need to install parallel throught brew.
+To Run the test scripts in parallel you need to install parallel through brew.
   * brew install parallel
   * plugin multiple andriod devices.
   * run parallel_execution.sh script.
