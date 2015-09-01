@@ -5,6 +5,10 @@ export TERM=${TERM:-dumb}
 clear
 #Random Port generation
 
+project_path=$(PWD)
+rm -rf $project_path/reports
+mkdir reports
+
 echo "*********Stopping all appium-servers********"
 killall -9 node
 sleep 1
@@ -73,9 +77,7 @@ parallel --no-notice --xapply -a appium_ports -a devices_updated -a bootstrap_po
 parallel --no-notice --xapply -a appium_ports -a devices_updated -a bootstrap_ports appium --session-override -p {1} -U {2} -bp {3} >/dev/null 2>&1 &
 
 echo "Starting Appium Test in parallel"
-parallel --no-notice --xapply -a appium_ports -a devices_updated -a device_os -a device_name  mvn clean test -Denv.PORT={1} -Denv.DEVICE={2} -Denv.OS={3}
-
-
+parallel --no-notice --xapply -a appium_ports -a devices_updated -a device_os -a device_name  mvn clean test -Denv.PORT={1} -Denv.DEVICE={2} -Denv.DEVICENAME={4} -Denv.REPORT=reports
 
 
 

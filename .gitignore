@@ -1,0 +1,9 @@
+reports/*
+target/*
+appium_ports
+bootstrap_ports
+chrome_ports
+device_name
+device_os
+devices_updated
+spike.sh
