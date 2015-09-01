@@ -29,6 +29,11 @@
 			<version>2.5</version>
 			<type>maven-plugin</type>
 		</dependency>
+		<dependency>
+			<groupId>com.github.yev</groupId>
+			<artifactId>screenshot</artifactId>
+			<version>0.2</version>
+		</dependency>
 	</dependencies>
 
 

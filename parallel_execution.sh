@@ -31,12 +31,12 @@ adb devices|tail -n +2|cut -sf 1 > devices_updated;
 
 while read line           
 do  
-	adb -s $line shell getprop ro.build.version.release | sed 's/ //g' >> device_os
+	adb -s $line shell getprop ro.build.version.release | sed -e 's/ //g' >> device_os
 done < devices_updated
 
 while read line           
 do  
-	adb -s $line shell getprop ro.product.model | sed 's/ //g' >> device_name
+	adb -s $line shell getprop ro.product.model | sed -e 's/ //g' >> device_name 
 done < devices_updated
 
 
