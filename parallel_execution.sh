@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo 'Running Appium server'
 
 export TERM=${TERM:-dumb}

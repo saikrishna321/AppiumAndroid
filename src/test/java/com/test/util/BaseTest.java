@@ -1,8 +1,8 @@
 package com.test.util;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,8 +11,8 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BaseTest{
 
@@ -30,6 +30,7 @@ public class BaseTest{
 			capabilities.setCapability("deviceName", "Android");
 			capabilities.setCapability("platformName", "android");
 			capabilities.setCapability("platformVersion", "5.X");
+		    capabilities.setCapability("browserName","");
 			capabilities.setCapability("app", System.getProperty("user.dir") + "/build/AndroidCalculator.apk");
 			capabilities.setCapability("package", "com.android2.calculator3");
 			capabilities.setCapability("appActivity", "com.android2.calculator3.Calculator");
@@ -46,5 +47,9 @@ public class BaseTest{
 	public void waitForElement(By id, int time) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable((id)));
+	}
+
+	public AppiumDriver<MobileElement> getDriver(){
+		return driver;
 	}
 }
